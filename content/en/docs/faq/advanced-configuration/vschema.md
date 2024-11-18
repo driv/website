@@ -4,18 +4,18 @@ description: Frequently Asked Questions about Vitess
 weight: 5
 ---
 
-## How do you select your primary key for Vitess?
+## How do you select your sharding key for Vitess?
 
-It is important to choose a strong primary Vindex when creating your VSchema, so the qualities should you look at are the following:
+It is important to choose a strong sharding key aka primary Vindex when creating your VSchema, so the qualities you should look at are the following:
 - Frequency in WHERE clause of queries
 - Uniqueness (of the mapping function) 
 	- This means that a vindex will map a column value to only one keyspace ID (or none at all)
 - Co-locating rows for joins and for single-shard transactions
 	- This means using the same primary vindex for multiple tables, as all rows tied to the same primary index will automatically be located in the same shard due to the uniqueness property of the vindex map
 - High cardinality
-	- This means producing a sufficiently large number of keyspace IDs, which will give you finer control for rebalancing load through resharding
+	- This means producing a sufficiently large number of keyspace IDs, which will give you finer control for rebalancing load through re-sharding
 
-You can read more detail about how to select your primary key [here](https://vitess.io/blog/2019-02-07-choosing-a-vindex/).
+You can read more detail about how to select your primary vindex [here](https://vitess.io/blog/2019-02-07-choosing-a-vindex/).
 
 ## How can you update or change your vschema?
 

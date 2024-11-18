@@ -1,14 +1,20 @@
 ---
-title: Vtgate
+title: VTGate
 description: Frequently Asked Questions about Vitess
 weight: 4
 ---
 
-## How do you use gRPC with vtgate?
+## How does VTGate know which shard to route a query to?
 
-To do this you will need to use the Vitess MySQL Go client. You can find a Golang Database compatible gRPC driver [here](https://pkg.go.dev/vitess.io/vitess/go/vt/vitessdriver). For Java go [here](https://github.com/vitessio/vitess/tree/master/java).
+VTGate knows both the Vschema and the schema of your tables in the backing MySQL databases.
 
-Once you have the appropriate driver you will need to add the `-service_map grpc-vtgateservice` VTGate flag and set the port `-grpc_port`.
+This enables VTGate to look at the WHERE clause of the query and then route the queries to the correct shards. VTGate is also aware of the sharding metadata, cluster state, and availability of tables, so it will only scatter the query across the shards it needs to use.
+
+## How do you use gRPC with VTGate?
+
+To do this you will need to use the Vitess MySQL Go client. We have a [Golang compatible gRPC driver](https://pkg.go.dev/vitess.io/vitess/go/vt/vitessdriver) and a [Java driver](https://github.com/vitessio/vitess/tree/master/java).
+
+Once you have the appropriate driver you will need to add the `--service_map grpc-vtgateservice` VTGate flag and set the port `--grpc_port`.
 
 This runs on a standard gRPC interface, so if you want to directly use it you can follow the example below:
 
@@ -52,8 +58,3 @@ async function main() {
 main().then((_) => _);
 ```
 
-## How does vtgate know which shard to route a query to?
-
-VTGate knows two things about your Vitess components: the Vschema and the schema of MySQL. 
-
-This enables VTGate to look at the WHERE clause of the query and then route the queries to correct shards. VTGate is also aware of the sharding metadata, cluster state, required latency, and availability of tables, so it will only scatter the query across the shards it needs to use.
