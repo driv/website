@@ -1,6 +1,5 @@
 ---
 title: Vindex
-description: Frequently Asked Questions about Vitess
 weight: 6
 ---
 

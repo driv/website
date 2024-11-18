@@ -1,6 +1,5 @@
 ---
 title: Advanced Migrations
-description: Frequently Asked Questions about Vitess
 weight: 2
 ---
 

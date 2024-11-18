@@ -1,6 +1,5 @@
 ---
 title: MySQL server variables
-description: Frequently Asked Questions about Vitess
 weight: 10
 ---
 

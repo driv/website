@@ -1,6 +1,5 @@
 ---
 title: VTTablet
-description: Frequently Asked Questions about Vitess
 weight: 3
 ---
 

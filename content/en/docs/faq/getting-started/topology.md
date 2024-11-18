@@ -1,6 +1,5 @@
 ---
 title: Topology
-description: Frequently Asked Questions about Vitess
 weight: 4
 ---
 

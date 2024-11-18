@@ -1,6 +1,5 @@
 ---
 title: Authentication
-description: Frequently Asked Questions about Vitess
 weight: 1
 ---
 

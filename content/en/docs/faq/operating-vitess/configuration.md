@@ -1,6 +1,5 @@
 ---
 title: Configuration
-description: Frequently Asked Questions about Vitess
 weight: 2
 ---
 

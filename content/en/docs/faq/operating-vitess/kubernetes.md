@@ -1,6 +1,5 @@
 ---
 title: Kubernetes
-description: Frequently Asked Questions about Vitess
 weight: 5
 ---
 

@@ -1,6 +1,5 @@
 ---
 title: Common Errors
-description: Frequently Asked Questions about Vitess
 weight: 1
 ---
 

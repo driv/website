@@ -1,6 +1,5 @@
 ---
 title: VSchema
-description: Frequently Asked Questions about Vitess
 weight: 5
 ---
 

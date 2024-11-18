@@ -1,6 +1,5 @@
 ---
 title: Overview
-description: Frequently Asked Questions about Vitess
 weight: 1
 ---
 

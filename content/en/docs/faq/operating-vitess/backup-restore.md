@@ -1,6 +1,5 @@
 ---
 title: Backup and Restore
-description: Frequently Asked Questions about Vitess
 weight: 4
 ---
 

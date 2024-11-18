@@ -1,6 +1,5 @@
 ---
 title: Compatibility
-description: Frequently Asked Questions about Vitess
 weight: 2
 ---
 

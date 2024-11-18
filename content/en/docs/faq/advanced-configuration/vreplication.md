@@ -1,6 +1,5 @@
 ---
 title: VReplication
-description: Frequently Asked Questions about Vitess
 weight: 7
 ---
 
