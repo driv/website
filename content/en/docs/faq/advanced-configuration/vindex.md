@@ -5,7 +5,7 @@ weight: 6
 ---
 
 ## What is a Vindex?
-If you are unfamiliar with Vindexes, we recommend that you first read the [documentation](../../reference/features/vindexes/).
+If you are unfamiliar with Vindexes, we recommend that you first read the [documentation](https://vitess.io/docs/reference/features/vindexes/).
 
 ## Does the Primary Vindex for a table need to match its Primary Key?
 
@@ -17,5 +17,5 @@ In this case, the order table has the `user_id` as a foreign key to the `id` of 
 
 ## How do I create a new LookupVindex?
 
-Please refer to the [user guide on CreateLookupVindex](../../user-guides/configuration-advanced/createlookupvindex/) to learn how to create a new Lookup Vindex, how to add it to a column, and how to verify that it was successfully added.
+Please refer to the [user guide on CreateLookupVindex](https://vitess.io/docs/user-guides/configuration-advanced/createlookupvindex/) to learn how to create a new Lookup Vindex, how to add it to a column, and how to verify that it was successfully added.
 
