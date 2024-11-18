@@ -5,7 +5,7 @@ weight: 6
 ---
 
 ## What is a Vindex?
-If you are unfamiliar with Vindexes, we recommend that you first read the [documentation](../../../docs/reference/features/vindexes).
+If you are unfamiliar with Vindexes, we recommend that you first read the [documentation](../../docs/reference/features/vindexes).
 
 ## Does the Primary Vindex for a table need to match its Primary Key?
 
