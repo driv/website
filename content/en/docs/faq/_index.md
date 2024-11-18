@@ -10,7 +10,7 @@ aliases: ['/docs/user-guides/faq/']
 
 We recommend asking questions in our [Slack workspace](https://vitess.io/slack). 
 
-We have a number of [other options](../../community/) that can be used as well.
+We have a number of [other options](https://vitess.io/community/) that can be used as well.
 
 We request that you not ask individual project members for support. Instead, please use these public communication channels where the community can help and also benefit from the solutions provided. Thanks!
 
