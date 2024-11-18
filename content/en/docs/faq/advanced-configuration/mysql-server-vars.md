@@ -1,7 +1,7 @@
 ---
-title: Components
+title: MySQL server variables
 description: Frequently Asked Questions about Vitess
-weight: 2
+weight: 10
 ---
 
 ## How can I change MySQL server variables in Vitess?
@@ -19,7 +19,3 @@ This would show the following result after checking the variable:
 ```sh
 $ vtctldclient -server localhost:15999 ExecuteFetchAsDba zone1-0000000100 "show variables like 'sync_binlog'"+---------------+-------+| Variable_name | Value |+---------------+-------+| sync_binlog   |     0 |+---------------+-------+
 ```
-
-## Examples of how to use Vitess components
-
-We have a couple of step through examples in Github [here](https://github.com/aquarapid/vitess_examples). Currently, these cover Operator Backup and Restore, Create Lookup Vindex, and VStream.
