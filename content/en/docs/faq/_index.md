@@ -10,7 +10,7 @@ aliases: ['/docs/user-guides/faq/']
 
 We recommend asking questions in our [Slack workspace](https://vitess.io/slack). 
 
-We have a number of [other options](https://vitess.io/community/) that can be used as well. 
+We have a number of [other options](../../community.md) that can be used as well.
 
 We request that you not ask individual project members for support. Instead, please use these public communication channels where the community can help and also benefit from the solutions provided. Thanks!
 
@@ -24,24 +24,24 @@ There are many channels available and we encourage you to join as many or as few
 * #kubernetes
 * #monitoring
 * #operator
-* #orchestrator-integration
+* #feat-vtorc
 * #releases
 * #vreplication
 * #website
 
 ## How can I contribute a Pull Request to Vitess?
 
-We welcome new contributors to Vitess. Just be sure to read the guide [here](https://vitess.io/docs/contributing/) to start.
+We welcome new contributors to Vitess. Just be sure to read the [ contributing guide](../contributing/) before you start.
 
-If you are already familiar with Vitess and you would like information on how to submit a Pull Request or file an Issue check out the following links:
+If you are already familiar with Vitess and you would like to know how to submit a Pull Request or file an Issue check out the following links:
 
-* [GitHub Workflow](https://vitess.io/docs/contributing/github-workflow/)
-* [Issue](https://vitess.io/docs/contributing/github-workflow/#submitting-issues)
+* [GitHub Workflow](../contributing/github-workflow/)
+* [Submitting Issues](../contributing/github-workflow/#submitting-issues)
 
 ## What are good videos to watch to get started learning about Vitess?
 
-We have a number of [recorded presentations and videos](https://vitess.io/docs/resources/presentations/) that can be watched to start learning about Vitess.
+We have a number of [recorded presentations and videos](../learning-resources/) that can be watched to start learning about Vitess.
 
-* For a curated list please check out this PlanetScale [blog post](https://www.planetscale.com/blog/videos-intro-to-vitess-its-powerful-capabilities-and-how-to-get-started).
+PlanetScale has also published a [Learn Vitess playlist](https://www.youtube.com/playlist?list=PLQiYtJSQdSEAJqEa5rh7Xa-RVCZWGzADN) on YouTube.
 
-## Additional FAQs?
+## Additional FAQs
