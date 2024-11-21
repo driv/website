@@ -1,5 +1,5 @@
 ---
-title: Vindex
+title: Vindexes
 weight: 6
 ---
 

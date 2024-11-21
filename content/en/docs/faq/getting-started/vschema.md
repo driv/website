@@ -1,5 +1,5 @@
 ---
-title: VSchema
+title: VSchema and Vindexes
 weight: 5
 ---
 
@@ -11,21 +11,11 @@ In contrast to a traditional database schema that contains metadata about tables
 
 Simply put, it contains the information needed to make Vitess look and act like a single database server.
 
-For example, the VSchema will contain the information about the sharding key for each sharded table. When the application issues a query with a WHERE clause that references the key, the VSchema information will be used to route the query to the appropriate shard.
-
-## What is a primary Vindex and how does it work?
-
-The Primary Vindex for a table is analogous to a database primary key. 
-
-Every sharded table must have one defined. A Primary Vindex must be unique: given an input value, it must produce a single keyspace ID. At the time of an insert to the table, the unique mapping produced by the Primary Vindex determines the target shard for the inserted row.
-
-In Vitess, the choice of Vindex allows control of how a column value maps to a keyspace ID. In other words, a Primary Vindex in Vitess not only defines the Sharding Key, but also decides the Sharding Strategy.
-
-Uniqueness for a Primary Vindex does not mean that the column has to be a primary key or unique key in the MySQL schema for the underlying shard. You can have multiple rows that map to the same keyspace ID. The Vindex uniqueness constraint only ensures that all rows for a keyspace ID end up in the same shard.
+For example, the VSchema will contain the sharding key for each sharded table. When the application issues a query with a WHERE clause that references the key, the VSchema will be used to route the query to the appropriate shard.
 
 ## What is a Vindex and how does it work?
 
-A Vindex provides a way to map a column value to a keyspace ID. Since each shard in Vitess covers a range of keyspace ID values, this mapping can be used to identify which shard contains a row. 
+A Vindex provides a way to map a column value to a keyspace ID. Since each shard in Vitess covers a range of keyspace ID values, this mapping can be used to identify which shard contains a row.
 
 The advantages of Vindexes stem from their flexibility:
 
@@ -36,6 +26,16 @@ The advantages of Vindexes stem from their flexibility:
 * Custom Vindexes can be created and used, and Vitess will still know how to reshard using such Vindexes.
 
 The Vschema contains the Vindex for any sharded tables. Every Vschema must have at least one Vindex, called the Primary Vindex, defined. A variety of other Vindexes are also available to choose from, with different trade-offs, and you can choose one that best suits your needs. You can read more about other Vindexes [here](https://vitess.io/docs/reference/features/vindexes/).
+
+## What is a primary Vindex and how does it work?
+
+The Primary Vindex for a table is analogous to a database primary key. 
+
+Every sharded table must have one defined. A Primary Vindex must be unique: given an input value, it must produce a single keyspace ID. At the time of an insert to the table, the unique mapping produced by the Primary Vindex determines the target shard for the inserted row.
+
+In Vitess, the choice of Vindex allows control of how a column value maps to a keyspace ID. In other words, a Primary Vindex in Vitess not only defines the Sharding Key, but also decides the Sharding Strategy.
+
+Uniqueness for a Primary Vindex does not mean that the column has to be a primary key or unique key in the MySQL schema for the underlying shard. You can have multiple rows that map to the same keyspace ID. The Vindex uniqueness constraint only ensures that all rows for a keyspace ID end up in the same shard.
 
 ## How do I create a VSchema?
 
@@ -53,6 +53,6 @@ Please do keep in mind that you don’t have to have Vindex to cover every query
 
 For a very trivial setup where there is only one unsharded keyspace, there is no need to specify a VSchema because Vitess will know that there is nowhere to route a query except to the single shard.
 
-However, once you have sharding, having a VSchema becomes a necessity. This is because a VSchema is needed to locate and place rows row each table in a sharded keyspace.
+However, once you have sharding, having a VSchema becomes a necessity. This is because a VSchema is needed to locate and place rows in each table in a sharded keyspace.
 
 The Vitess distribution has a demo of VSchema operation [here](https://github.com/vitessio/vitess/tree/master/examples/demo).

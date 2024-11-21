@@ -29,14 +29,15 @@ Vitess uses a plugin implementation to support multiple backend technologies for
 The Topology Service interfaces are defined in our code in go/vt/topo/, specific implementations are in go/vt/topo/<name>, and we also have a set of unit tests for it in go/vt/topo/test.
 
 {{< info >}}
-If starting from scratch, please use the `etcd` implementation. The Consul implementation is deprecated, although still supported.
+If starting from scratch, please use the `etcd` implementation.
 {{< /info >}}
 
 ## How do I choose which topology server to use?
 
-The first question to consider is: Do you use one already or are you required to use a specific one? If the answer to that question is yes, then you should likely implement that rather than adding a new server to run Vitess.
+The first question to consider is: do you use one already or are you required to use a specific one? If the answer to that question is yes, then you should likely implement that rather than adding a new server to run Vitess.
+However, in large implementations, it makes sense to run a separate topology server dedicated to Vitess. This avoids "noisy neighbor" problems.
 
-If the answer to that question is no, then we’d recommend that you use etcd if you can, otherwise we’d recommend that you use ZooKeeper. 
+By default, we recommend that you use etcd if you can, otherwise you may use ZooKeeper.
 
 ## How do I implement etcd (etcd2)?
 

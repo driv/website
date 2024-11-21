@@ -48,7 +48,7 @@ Vitess consists of a number of server processes and command-line utilities and i
 
 The diagram below illustrates Vitess’ components and their location within Vitess’ architecture:
 
-<img alt="Vitess Components" src="../img/vitess-components.png"  width=100%>
+<img alt="Vitess Components" src="/img/vitess-components.png"  width=100%>
 
 ## Are microservices recommended for scaling? 
 
