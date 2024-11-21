@@ -14,25 +14,21 @@ It is important to choose a strong sharding key aka primary Vindex when creating
 - High cardinality
 	- This means producing a sufficiently large number of keyspace IDs, which will give you finer control for rebalancing load through re-sharding
 
-You can read more detail about how to select your primary vindex [here](https://vitess.io/blog/2019-02-07-choosing-a-vindex/).
+You can read more about how to select your primary vindex in this [blog post](https://vitess.io/blog/2019-02-07-choosing-a-vindex/).
 
 ## How can you update or change your vschema?
 
-We recommend using ApplySchema and ApplyVSchema in order to make updates to schemas within Vitess. It is also important to note that you will need to update both your MySQL database schema as well as your VSchema. 
-
-The [ApplySchema](https://vitess.io/docs/reference/programs/vtctl/#applyvschema) command applies a schema change to the specified keyspace on every primary tablet, running in parallel on all shards. Changes are then propagated to replicas. The ApplyVSchema command applies the specified VSchema to the keyspace. The VSchema can be specified as a string or in a file. You can read more about the process to use these commands [here](https://vitess.io/docs/reference/features/schema-management/#changing-your-schema). 
-
-There are a few ways that changes can be made to your schemas within Vitess. If you don’t want to use ApplySchema you can read more about the different methods to make updates [here](https://vitess.io/docs/user-guides/schema-changes/).
+Vitess provides a CLI command [ApplyVSchema](https://vitess.io/docs/reference/programs/vtctldclient/vtctldclient_applyvschema/) to make updates to the vschema within Vitess.
 
 ## Without a Vschema how can table and schema routing work?
 
 There are a couple of special cases for when you don’t have a VSchema in place. 
 
 For example, if you add a table called foo to an unsharded keyspace called ks1 the following routing will enable you to access the table:
-1. USE ks1; select * from foo; 
-2. From the unqualified schema using select * from ks1.foo; 
-3. As long as you have only one keyspace, you can use select * from foo in anonymous mode 
+1. `use ks1; select * from foo;`
+2. From the unqualified schema using `select * from ks1.foo;`
+3. As long as you have only one keyspace, you can use `select * from foo;` in anonymous mode.
 
-However, if you have more than one keyspace you will not be able to access the table from the unqualified schema using select * from foo until you add the table to VSchema. 
+However, if you have more than one keyspace you will not be able to access the table from the unqualified schema using `select * from foo` until you add the table to the VSchema.
 
-For a sharded keyspace will not be able to access the table until you have a VSchema for it. However, you will be able to see it in show tables.
+For a sharded keyspace you will not be able to access the table until you have a VSchema for it. However, you will be able to see it in `show tables`.
